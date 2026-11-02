@@ -88,7 +88,7 @@
 </div>
 
 ```sh
-pip install angaros
+pip install "git+https://github.com/Mahdi-mortazavi/angaros#subdirectory=pc"
 git clone https://github.com/Mahdi-mortazavi/angaros && cd angaros/worker
 npx wrangler@4 login
 npx wrangler@4 d1 create angaros                  # database_id را در wrangler.toml بگذار
@@ -117,14 +117,27 @@ APK را از [آخرین نسخه](https://github.com/Mahdi-mortazavi/angaros/r
 
 </div>
 
-```sh
-claude mcp add phone --scope user -- angaros-mcp          # Claude Code
-hermes mcp add phone --command angaros-mcp                # Hermes
+```text
+/plugin marketplace add Mahdi-mortazavi/angaros
+/plugin install angaros@angaros
 ```
 
 <div dir="rtl">
 
-تنظیمات Codex، Cursor، Gemini CLI، OpenCode و کلاینت‌های HTTP در [docs/AGENTS.md](docs/AGENTS.md#connect) است.
+**Claude Code:** بالا پلاگین رسمی است (سرور MCP و اسکیل ایجنت با هم، بدون `pip`، با ابزار [`uv`](https://docs.astral.sh/uv/)).
+**هرمس، Codex، Cursor و هر کلاینت MCP دیگر:**
+
+</div>
+
+```sh
+hermes mcp add angaros --command angaros-mcp              # Hermes
+claude mcp add angaros --scope user -- angaros-mcp        # Claude Code، بدون پلاگین
+codex mcp add angaros -- angaros-mcp                      # OpenAI Codex CLI
+```
+
+<div dir="rtl">
+
+تنظیمات بقیه‌ی کلاینت‌ها، Gemini CLI، OpenCode و مسیرهای HTTP/REST/SDK در [docs/AGENTS.md](docs/AGENTS.md#connect) است.
 بعد بپرس: «پیامک‌های امروزم را خلاصه کن.» هر وقت چیزی درست کار نکرد، `angaros doctor` را اجرا کن؛ برای هر
 مشکل راه‌حل می‌دهد.
 

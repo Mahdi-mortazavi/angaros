@@ -1,0 +1,8 @@
+{
+  "mcpServers": {
+    "angaros": {
+      "command": "uvx",
+      "args": ["--from", "git+https://github.com/Mahdi-mortazavi/angaros#subdirectory=pc", "angaros-mcp"]
+    }
+  }
+}

@@ -7,7 +7,7 @@ days and cannot read them. You deploy it once, to your own Cloudflare account.
 
 - A Cloudflare account (the free plan is enough for one phone).
 - Node.js 22+ (for `npx wrangler`).
-- `angaros` installed on your computer: `pip install angaros`.
+- `angaros` installed on your computer: `pip install "git+https://github.com/Mahdi-mortazavi/angaros#subdirectory=pc"` (a PyPI release is planned).
 
 ## Steps
 

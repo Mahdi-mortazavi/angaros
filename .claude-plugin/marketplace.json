@@ -1,0 +1,19 @@
+{
+  "name": "angaros",
+  "owner": { "name": "Mahdi Mortazavi", "url": "https://github.com/Mahdi-mortazavi" },
+  "metadata": {
+    "description": "Angaros: give your AI agents your Android phone (SMS, OTP, contacts, call log).",
+    "version": "3.0.3"
+  },
+  "plugins": [
+    {
+      "name": "angaros",
+      "source": "./",
+      "description": "MCP server + agent skill for your Android phone: SMS search, OTP codes, Iranian bank-SMS parsing, contacts, call log, automation rules and SMS sending. Needs the Angaros Android app and your own free Cloudflare relay.",
+      "version": "3.0.3",
+      "category": "productivity",
+      "keywords": ["mcp", "sms", "otp", "android", "automation"],
+      "homepage": "https://mahdi-mortazavi.github.io/angaros/"
+    }
+  ]
+}

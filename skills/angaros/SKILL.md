@@ -25,7 +25,7 @@ Repo: <https://github.com/Mahdi-mortazavi/angaros>. Full guide: `docs/AGENTS.md`
 
 ## Connect
 
-Install once: `pip install angaros` (Python 3.10+). That puts `angaros` and `angaros-mcp` on PATH.
+Install once: `pip install "git+https://github.com/Mahdi-mortazavi/angaros#subdirectory=pc"` (Python 3.10+; a PyPI release is planned). That puts `angaros` and `angaros-mcp` on PATH.
 
 Claude Code:
 ```

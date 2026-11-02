@@ -116,7 +116,7 @@ Cloudflare account.
 **1. Deploy your relay** (once):
 
 ```sh
-pip install angaros
+pip install "git+https://github.com/Mahdi-mortazavi/angaros#subdirectory=pc"
 git clone https://github.com/Mahdi-mortazavi/angaros && cd angaros/worker
 npx wrangler@4 login
 npx wrangler@4 d1 create angaros                  # paste the printed database_id into wrangler.toml
@@ -138,12 +138,27 @@ progress.
 
 **3. Give it to your agent:**
 
-```sh
-claude mcp add phone --scope user -- angaros-mcp          # Claude Code
-hermes mcp add phone --command angaros-mcp                # Hermes
+**Claude Code**: install the plugin (MCP server and agent skill in one step, no `pip` needed, it runs through [`uv`](https://docs.astral.sh/uv/)):
+
+```text
+/plugin marketplace add Mahdi-mortazavi/angaros
+/plugin install angaros@angaros
 ```
 
-Codex, Cursor, Gemini CLI, OpenCode and HTTP clients: see [docs/AGENTS.md](docs/AGENTS.md#connect).
+**Hermes, Codex, Cursor, Gemini CLI, OpenCode, anything that speaks MCP**:
+
+```sh
+hermes mcp add angaros --command angaros-mcp              # Hermes
+claude mcp add angaros --scope user -- angaros-mcp        # Claude Code, without the plugin
+codex mcp add angaros -- angaros-mcp                      # OpenAI Codex CLI
+```
+
+```jsonc
+// Cursor / Claude Desktop / any MCP client config
+{ "mcpServers": { "angaros": { "command": "angaros-mcp" } } }
+```
+
+More clients and the HTTP/REST/SDK routes: see [docs/AGENTS.md](docs/AGENTS.md#connect).
 Then ask: *"Summarise my texts from today."* Run `angaros doctor` whenever something looks wrong;
 it prints a fix for every problem it finds.
 

@@ -7,7 +7,7 @@ contacts and call log, synced end-to-end encrypted through a relay you deploy yo
 <!-- mcp-name: io.github.Mahdi-mortazavi/angaros -->
 
 ```sh
-pip install angaros
+pip install "git+https://github.com/Mahdi-mortazavi/angaros#subdirectory=pc"
 angaros pair --worker https://angaros.<you>.workers.dev   # then scan the QR code in the app
 angaros status
 claude mcp add phone --scope user -- angaros-mcp

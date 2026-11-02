@@ -1,0 +1,10 @@
+{
+  "name": "angaros",
+  "version": "3.0.3",
+  "description": "Your phone, for your AI agents: read and search SMS, get OTP codes, parse bank texts, look up contacts and call history, and send SMS from your Android phone. End-to-end encrypted, self-hosted relay.",
+  "author": { "name": "Mahdi Mortazavi", "url": "https://github.com/Mahdi-mortazavi" },
+  "homepage": "https://mahdi-mortazavi.github.io/angaros/",
+  "repository": "https://github.com/Mahdi-mortazavi/angaros",
+  "license": "MIT",
+  "keywords": ["mcp", "sms", "otp", "android", "contacts", "call-log", "automation", "bank-sms"]
+}

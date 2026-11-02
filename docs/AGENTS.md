@@ -9,7 +9,7 @@ SMS, OTP codes, audited SMS sending, automation rules and a live event stream. D
 | MCP stdio | `angaros-mcp` | local process |
 | MCP streamable HTTP | `angaros-mcp --http [--port 8766]` → `http://127.0.0.1:8766/mcp` | `Authorization: Bearer $(angaros token)` |
 | REST + SSE | `angaros serve [--port 8765]` (spec: `pc/phonebridge/openapi.yaml`, also `GET /openapi.yaml`) | same bearer token |
-| Python SDK | `from phonebridge import Phone` (`pip install angaros`) or `angaros run script.py` | local |
+| Python SDK | `from phonebridge import Phone` (install: see the README quick start) or `angaros run script.py` | local |
 | CLI | `angaros <command>` (JSON out; `angaros schema`) | local |
 
 All HTTP servers bind to 127.0.0.1 only. The token is stored in the config dir as `api_token`;
@@ -18,11 +18,21 @@ All HTTP servers bind to 127.0.0.1 only. The token is stored in the config dir a
 
 ## Connect
 
+**Claude Code plugin (recommended):** installs the MCP server and the agent skill together.
+
+```text
+/plugin marketplace add Mahdi-mortazavi/angaros
+/plugin install angaros@angaros
 ```
-claude mcp add phone --scope user -- angaros-mcp
-hermes mcp add phone --command angaros-mcp
+
+The plugin starts the server with `uvx` straight from this repository, so it needs [`uv`](https://docs.astral.sh/uv/)
+and nothing else. It still needs a paired phone: run `angaros pair` once (see the README quick start).
+
+```
+claude mcp add angaros --scope user -- angaros-mcp
+hermes mcp add angaros --command angaros-mcp
 # HTTP variant (server started with --http):
-claude mcp add --transport http phone-http http://127.0.0.1:8766/mcp --header "Authorization: Bearer <token>"
+claude mcp add --transport http angaros-http http://127.0.0.1:8766/mcp --header "Authorization: Bearer <token>"
 ```
 
 Codex (`~/.codex/config.toml`), Cursor (`~/.cursor/mcp.json`), Gemini CLI (`~/.gemini/settings.json`) and OpenCode
