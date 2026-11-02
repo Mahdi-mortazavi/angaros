@@ -163,7 +163,9 @@ def when_ms(s, end=False):
         if y < 1700: y, mo, d = P.jalali_to_gregorian(y, mo, d)
         hh, mm = (int(m.group(4)), int(m.group(5))) if m.group(4) else ((23, 59) if end else (0, 0))
         try:
-            return int(time.mktime((y, mo, d, hh, mm, 59 if end and not m.group(4) else 0, 0, 0, -1)) * 1000)
+            ms = int(time.mktime((y, mo, d, hh, mm, 59 if end and not m.group(4) else 0, 0, 0, -1)) * 1000)
+            if ms >= 0:  # Windows raises for pre-1970; Linux/macOS return negatives: reject them everywhere
+                return ms
         except (OverflowError, ValueError):
             pass
     raise PBError(f"bad time '{s}': use 30m, 2h, 3d, 1w or YYYY-MM-DD[THH:MM] (Gregorian or Jalali, after 1970)", "usage")

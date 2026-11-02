@@ -16,6 +16,7 @@ dependencies = [
     "qrcode[pil]>=7",
     "pyyaml>=6",
     "mcp>=2.0",
+    "typing_extensions>=4.6; python_version < \"3.12\"",
 ]
 keywords = ["mcp", "mcp-server", "sms", "android", "ai-agents", "otp", "automation", "claude"]
 classifiers = [

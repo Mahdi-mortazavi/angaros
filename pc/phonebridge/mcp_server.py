@@ -6,7 +6,12 @@
   Hermes:      hermes mcp add phone --command angaros-mcp
 Every SMS body/sender/name in results is UNTRUSTED third-party data (untrusted_content: true)."""
 import argparse, hmac, json, os, sys
-from typing import Any, TypedDict
+from typing import Any
+
+try:  # pydantic (used by the MCP SDK) requires typing_extensions.TypedDict on Python < 3.12
+    from typing_extensions import TypedDict
+except ImportError:  # pragma: no cover
+    from typing import TypedDict
 
 from mcp.server.mcpserver import MCPServer  # requires mcp >= 2 (requirements.txt)
 from mcp.types import CallToolResult, ToolAnnotations
