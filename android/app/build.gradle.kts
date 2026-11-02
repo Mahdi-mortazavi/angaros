@@ -8,7 +8,7 @@ plugins {
 // The product name lives here only: it becomes @string/brand (app_name aliases it) and BuildConfig.BRAND.
 // applicationId, the namespace and the pb1: protocol keep the old "phonebridge" identifiers on purpose.
 val brand = "Angaros"
-val appVersion = "3.0.3" // x-release-please-version
+val appVersion = "3.1.0" // x-release-please-version
 // versionCode = major*10000 + minor*100 + patch (3.0.1 -> 30001). v3.0.0 shipped as 3, below 2.1.0's code, which
 // Android refused to install as a downgrade; a derived code can only go up.
 val appVersionCode = appVersion.split('.').map(String::toInt).let { (ma, mi, pa) ->

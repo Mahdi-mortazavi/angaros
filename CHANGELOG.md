@@ -5,6 +5,18 @@ All notable changes to this project are documented here. The format follows
 [Semantic Versioning](https://semver.org/). From the first public release on,
 entries are written by Release Please from Conventional Commit messages.
 
+## [3.1.0](https://github.com/Mahdi-mortazavi/angaros/compare/v3.0.3...v3.1.0) (2026-11-02)
+
+
+### Features
+
+* Angaros 3.0.3 - your phone, for your AI agents ([230797d](https://github.com/Mahdi-mortazavi/angaros/commit/230797d064bd9a4a7cd402b5dc7ecc2f3951b685))
+
+
+### Bug Fixes
+
+* **ci:** executable gradlew, reject pre-1970 dates on all platforms, typing_extensions TypedDict for py&lt;3.12 ([bef6426](https://github.com/Mahdi-mortazavi/angaros/commit/bef6426d78152995202910ba957baed62a8a98e0))
+
 ## [3.0.3] - 2026-11-02
 
 First public, open-source release (MIT).
