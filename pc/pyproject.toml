@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "angaros"
-version = "3.0.3" # x-release-please-version
+version = "3.1.0" # x-release-please-version
 description = "Your phone, for your AI agents: SMS, contacts and call log from your own Android phone over an end-to-end encrypted relay (CLI, MCP server, Python SDK, REST)."
 readme = "README.md"
 license = "MIT"

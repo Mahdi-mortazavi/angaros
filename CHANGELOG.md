@@ -5,6 +5,13 @@ All notable changes to this project are documented here. The format follows
 [Semantic Versioning](https://semver.org/). From the first public release on,
 entries are written by Release Please from Conventional Commit messages.
 
+## [3.1.0](https://github.com/Mahdi-mortazavi/angaros/compare/v3.0.3...v3.1.0) (2026-11-02)
+
+
+### Features
+
+* official Claude Code plugin + marketplace, accurate install instructions (no PyPI yet) ([75cd808](https://github.com/Mahdi-mortazavi/angaros/commit/75cd808341b47d082a08fc4ac9664b777a7e16aa))
+
 ## [3.0.3] - 2026-11-02
 
 First public, open-source release (MIT).

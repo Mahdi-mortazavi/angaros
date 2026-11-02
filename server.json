@@ -8,17 +8,22 @@
     "url": "https://github.com/Mahdi-mortazavi/angaros",
     "source": "github"
   },
-  "version": "3.0.3",
+  "version": "3.1.0",
   "packages": [
     {
       "registryType": "pypi",
       "registryBaseUrl": "https://pypi.org",
       "identifier": "angaros",
-      "version": "3.0.3",
+      "version": "3.1.0",
       "runtimeHint": "uvx",
-      "transport": { "type": "stdio" },
+      "transport": {
+        "type": "stdio"
+      },
       "packageArguments": [
-        { "type": "positional", "value": "mcp" }
+        {
+          "type": "positional",
+          "value": "mcp"
+        }
       ],
       "environmentVariables": [
         {
