@@ -1,0 +1,32 @@
+{
+  "$schema": "https://static.modelcontextprotocol.io/schemas/2025-09-29/server.schema.json",
+  "name": "io.github.Mahdi-mortazavi/angaros",
+  "title": "Angaros",
+  "description": "Android SMS, OTP codes, contacts and call log for AI agents, with audited sending. E2E encrypted.",
+  "websiteUrl": "https://mahdi-mortazavi.github.io/angaros/",
+  "repository": {
+    "url": "https://github.com/Mahdi-mortazavi/angaros",
+    "source": "github"
+  },
+  "version": "3.0.3",
+  "packages": [
+    {
+      "registryType": "pypi",
+      "registryBaseUrl": "https://pypi.org",
+      "identifier": "angaros",
+      "version": "3.0.3",
+      "runtimeHint": "uvx",
+      "transport": { "type": "stdio" },
+      "packageArguments": [
+        { "type": "positional", "value": "mcp" }
+      ],
+      "environmentVariables": [
+        {
+          "name": "ANGAROS_HOME",
+          "description": "Directory holding config.json and phone.db (default ~/.angaros). Pair first with: angaros pair --worker <your relay URL>",
+          "isRequired": false
+        }
+      ]
+    }
+  ]
+}

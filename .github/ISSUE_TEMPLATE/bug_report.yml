@@ -1,0 +1,54 @@
+name: Bug report
+description: Something does not work as documented.
+labels: [bug]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Thanks for reporting. **Never paste real message text, phone numbers, a `pb1:` pairing string,
+        `config.json`, `api_token` or your Worker URL.** Replace them with placeholders.
+        Security problems go to [private reporting](https://github.com/Mahdi-mortazavi/angaros/security/advisories/new), not here.
+  - type: dropdown
+    id: part
+    attributes:
+      label: Which part?
+      options: [Android app, CLI (angaros), MCP server, Python SDK / REST API, Rules / daemon, Relay (Worker), Docs]
+    validations:
+      required: true
+  - type: textarea
+    id: what
+    attributes:
+      label: What happened, and what did you expect?
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Steps to reproduce
+      placeholder: "1. angaros send +15550100 'hi' --dry-run\n2. ..."
+    validations:
+      required: true
+  - type: textarea
+    id: doctor
+    attributes:
+      label: Output of `angaros doctor`
+      description: It contains no secrets and no messages.
+      render: json
+  - type: input
+    id: versions
+    attributes:
+      label: Versions
+      placeholder: "app 3.0.3, angaros 3.0.3, Python 3.12, Windows 11"
+    validations:
+      required: true
+  - type: input
+    id: device
+    attributes:
+      label: Phone model and Android version
+      placeholder: "Pixel 8, Android 16"
+  - type: textarea
+    id: logs
+    attributes:
+      label: Logs
+      description: The app's Settings → Diagnostics report is safe to paste. Redact anything personal.
+      render: text

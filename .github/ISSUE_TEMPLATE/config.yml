@@ -1,0 +1,11 @@
+blank_issues_enabled: false
+contact_links:
+  - name: Security vulnerability
+    url: https://github.com/Mahdi-mortazavi/angaros/security/advisories/new
+    about: Report privately, please not as a public issue.
+  - name: Questions and ideas
+    url: https://github.com/Mahdi-mortazavi/angaros/discussions
+    about: Ask and discuss in GitHub Discussions.
+  - name: Community (Telegram)
+    url: https://t.me/Startup_legend
+    about: Startup Legend community, English and Persian.

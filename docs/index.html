@@ -1,0 +1,219 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Angaros: your phone, for your AI agents</title>
+<meta name="description" content="Give Claude, Hermes, Codex, Cursor and any MCP client your Android phone's SMS, contacts and call log, through an end-to-end encrypted relay you own. Open source (MIT).">
+<meta name="theme-color" content="#1C2C7E">
+<link rel="icon" href="assets/favicon.png">
+<link rel="canonical" href="https://mahdi-mortazavi.github.io/angaros/">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Angaros">
+<meta property="og:title" content="Angaros: your phone, for your AI agents">
+<meta property="og:description" content="SMS, contacts and call log for Claude, Hermes, Codex, Cursor and any MCP client. End-to-end encrypted, self-hosted relay, open source.">
+<meta property="og:url" content="https://mahdi-mortazavi.github.io/angaros/">
+<meta property="og:image" content="https://mahdi-mortazavi.github.io/angaros/assets/social-preview.png">
+<meta property="og:image:width" content="1280">
+<meta property="og:image:height" content="640">
+<meta property="og:image:alt" content="Angaros logo: a message bubble linked to an agent node">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Angaros: your phone, for your AI agents">
+<meta name="twitter:description" content="SMS, contacts and call log for any MCP client. End-to-end encrypted, self-hosted, MIT.">
+<meta name="twitter:image" content="https://mahdi-mortazavi.github.io/angaros/assets/social-preview.png">
+<style>
+  :root {
+    --bg: #F8F6F0; --surface: #FFFFFF; --text: #14172B; --muted: #545A73; --line: #E3E0D6;
+    --brand: #1C2C7E; --teal: #1B8F9A; --gold: #B97A12; --code: #0F1430; --codetext: #E8ECFF;
+    --radius: 18px; color-scheme: light;
+  }
+  [data-theme="dark"] {
+    --bg: #0B1022; --surface: #121933; --text: #E9ECF7; --muted: #A3AACA; --line: #222B4D;
+    --brand: #9FB0FF; --teal: #4FD3DE; --gold: #F2B84B; --code: #070A18; --codetext: #E8ECFF; color-scheme: dark;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #0B1022; --surface: #121933; --text: #E9ECF7; --muted: #A3AACA; --line: #222B4D;
+      --brand: #9FB0FF; --teal: #4FD3DE; --gold: #F2B84B; --code: #070A18; --codetext: #E8ECFF; color-scheme: dark;
+    }
+  }
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+  body { margin: 0; background: var(--bg); color: var(--text); line-height: 1.6;
+    font: 17px/1.6 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Vazirmatn", sans-serif; }
+  a { color: var(--brand); }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 24px; }
+  header.top { display: flex; align-items: center; justify-content: space-between; padding: 18px 0; }
+  .brand { display: flex; align-items: center; gap: 10px; font-weight: 700; font-size: 20px; color: var(--text); text-decoration: none; }
+  .brand img { width: 36px; height: 36px; border-radius: 10px; }
+  nav a { margin-left: 18px; color: var(--muted); text-decoration: none; font-size: 15px; }
+  nav a:hover { color: var(--text); }
+  .toggle { margin-left: 18px; border: 1px solid var(--line); background: var(--surface); color: var(--text);
+    border-radius: 999px; padding: 6px 12px; cursor: pointer; font: inherit; font-size: 14px; }
+  .hero { display: grid; grid-template-columns: 1.15fr .85fr; gap: 48px; align-items: center; padding: 48px 0 32px; }
+  .eyebrow { color: var(--teal); font-weight: 600; letter-spacing: .02em; font-size: 15px; }
+  h1 { font-size: clamp(38px, 6vw, 64px); line-height: 1.05; margin: 10px 0 18px; letter-spacing: -0.02em; }
+  .lede { font-size: 20px; color: var(--muted); max-width: 36em; }
+  .cta { display: flex; flex-wrap: wrap; gap: 12px; margin: 28px 0 10px; }
+  .btn { display: inline-block; padding: 13px 22px; border-radius: 999px; font-weight: 600; text-decoration: none; font-size: 16px; }
+  .btn.primary { background: var(--brand); color: var(--bg); }
+  [data-theme="dark"] .btn.primary { color: #0B1022; }
+  .btn.ghost { border: 1px solid var(--line); color: var(--text); background: var(--surface); }
+  .small { font-size: 14px; color: var(--muted); }
+  .phones { display: flex; gap: 14px; justify-content: center; }
+  .phones img { width: 46%; height: auto; border-radius: 22px; border: 1px solid var(--line); box-shadow: 0 20px 50px rgba(15,20,48,.18); }
+  .phones img:last-child { margin-top: 40px; }
+  section { padding: 40px 0; }
+  h2 { font-size: 30px; margin: 0 0 18px; letter-spacing: -0.01em; }
+  .grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; }
+  .card { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 22px; }
+  .card h3 { margin: 0 0 6px; font-size: 18px; }
+  .card p { margin: 0; color: var(--muted); font-size: 15.5px; }
+  .steps { counter-reset: s; display: grid; gap: 18px; }
+  .step { background: var(--surface); border: 1px solid var(--line); border-radius: var(--radius); padding: 20px 22px; }
+  .step h3 { margin: 0 0 10px; font-size: 18px; }
+  .step h3::before { counter-increment: s; content: counter(s); display: inline-grid; place-items: center; width: 28px; height: 28px;
+    border-radius: 50%; background: var(--teal); color: #fff; font-size: 15px; margin-right: 10px; }
+  pre { position: relative; margin: 0; background: var(--code); color: var(--codetext); border-radius: 12px; padding: 16px 18px;
+    overflow-x: auto; font: 14.5px/1.55 ui-monospace, "Cascadia Code", Consolas, monospace; }
+  pre .c { color: #8D96C4; }
+  .copy { position: absolute; top: 8px; right: 8px; border: 0; border-radius: 8px; padding: 5px 10px; cursor: pointer;
+    background: rgba(255,255,255,.12); color: #fff; font: 13px system-ui, sans-serif; }
+  .copy:focus-visible, .toggle:focus-visible, .btn:focus-visible { outline: 3px solid var(--teal); outline-offset: 2px; }
+  table { width: 100%; border-collapse: collapse; font-size: 15.5px; }
+  th, td { text-align: left; padding: 10px 12px; border-bottom: 1px solid var(--line); vertical-align: top; }
+  th { color: var(--muted); font-weight: 600; }
+  .story { border-left: 4px solid var(--gold); padding: 6px 0 6px 20px; color: var(--muted); font-size: 18px; max-width: 46em; }
+  .story em { color: var(--text); }
+  footer { padding: 40px 0 60px; color: var(--muted); font-size: 15px; border-top: 1px solid var(--line); margin-top: 30px; }
+  footer a { color: var(--muted); }
+  @media (max-width: 860px) {
+    .hero { grid-template-columns: 1fr; }
+    .grid { grid-template-columns: 1fr; }
+    nav a:not(.keep) { display: none; }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="brand" href="#"><img src="assets/favicon.png" alt="">Angaros</a>
+    <nav>
+      <a href="#how">How it works</a>
+      <a href="#start">Quick start</a>
+      <a href="#security">Security</a>
+      <a class="keep" href="https://github.com/Mahdi-mortazavi/angaros">GitHub</a>
+      <button class="toggle" id="theme" type="button" aria-label="Switch between light and dark theme">◐ Theme</button>
+    </nav>
+  </header>
+
+  <main>
+    <div class="hero">
+      <div>
+        <div class="eyebrow">Open source · MCP server · Android</div>
+        <h1>Your phone, for your AI agents.</h1>
+        <p class="lede">Give Claude, Hermes, Codex, Cursor or any MCP client your phone's SMS, contacts and call log,
+          and let them text on your behalf, through a relay that only ever sees ciphertext.</p>
+        <div class="cta">
+          <a class="btn primary" href="#start">Get started in 60 seconds</a>
+          <a class="btn ghost" href="https://github.com/Mahdi-mortazavi/angaros/releases/latest">Download the APK</a>
+        </div>
+        <p class="small">MIT licensed · self-hosted on Cloudflare's free tier · no account, no root, no open ports</p>
+      </div>
+      <div class="phones">
+        <img src="assets/screens/messages.png" alt="Messages screen with a one-tap OTP code, synthetic data" width="784" height="1700" loading="eager">
+        <img src="assets/screens/sends.png" alt="Sends screen with a verified audit record, synthetic data" width="784" height="1700" loading="lazy">
+      </div>
+    </div>
+    <p class="small">Screens are synthetic renderings of the real app with invented names, fictional numbers and made-up messages.</p>
+
+    <section>
+      <p class="story"><em>Angaros</em> was the royal courier of the Achaemenid Persians. The Greeks borrowed the word as
+        <em>angelos</em>, messenger, the root of <em>angel</em>. “Neither snow nor rain nor heat nor gloom of night stays
+        these couriers,” wrote Herodotus. This one carries your messages, and cannot read them.</p>
+    </section>
+
+    <section>
+      <h2>What your agent gets</h2>
+      <div class="grid">
+        <div class="card"><h3>Every message, searchable</h3><p>Full SMS history in a local SQLite with full-text search that normalises Persian, Arabic and English.</p></div>
+        <div class="card"><h3>One-time codes</h3><p><code>otp_wait</code> blocks until a new code arrives. No more reading digits off the lock screen.</p></div>
+        <div class="card"><h3>Accountable sending</h3><p>Dry runs, idempotency keys, and a hash-chained log of every SMS sent, on both devices.</p></div>
+        <div class="card"><h3>Contacts and calls</h3><p>Names resolved everywhere, missed calls, per-person history.</p></div>
+        <div class="card"><h3>Automations</h3><p>YAML rules on SMS, calls, sends or a schedule: webhooks, notes, replies, LLM digests.</p></div>
+        <div class="card"><h3>Four ways in</h3><p>22 MCP tools, a JSON CLI, a Python SDK and a local REST + SSE API.</p></div>
+      </div>
+    </section>
+
+    <section id="start">
+      <h2>Quick start</h2>
+      <div class="steps">
+        <div class="step"><h3>Deploy your relay</h3>
+<pre><code>pip install angaros
+git clone https://github.com/Mahdi-mortazavi/angaros && cd angaros/worker
+npx wrangler@4 login
+npx wrangler@4 d1 create angaros            <span class="c"># paste database_id into wrangler.toml</span>
+npx wrangler@4 d1 migrations apply angaros --remote
+angaros master | npx wrangler@4 secret put PAIR_MASTER
+npx wrangler@4 deploy</code></pre></div>
+        <div class="step"><h3>Install the app and pair</h3>
+<pre><code>angaros pair --worker https://angaros.&lt;you&gt;.workers.dev   <span class="c"># shows a QR code</span></code></pre>
+          <p class="small">Install the APK from the <a href="https://github.com/Mahdi-mortazavi/angaros/releases/latest">latest release</a>, grant the permissions, allow background use, scan the code.</p></div>
+        <div class="step"><h3>Connect your agent</h3>
+<pre><code>claude mcp add phone --scope user -- angaros-mcp     <span class="c"># Claude Code</span>
+hermes mcp add phone --command angaros-mcp           <span class="c"># Hermes</span></code></pre>
+          <p class="small">Codex, Cursor, Gemini CLI, OpenCode and HTTP clients: <a href="https://github.com/Mahdi-mortazavi/angaros/blob/main/docs/AGENTS.md#connect">docs/AGENTS.md</a>.</p></div>
+      </div>
+    </section>
+
+    <section id="how">
+      <h2>How it works</h2>
+      <div class="grid">
+        <div class="card"><h3>1 · Sealed on the phone</h3><p>AES-256-GCM with a key that exists only on your phone and your computer, bound to device and direction.</p></div>
+        <div class="card"><h3>2 · A blind mailbox</h3><p>Your Cloudflare Worker stores ciphertext for at most 7 days. About 100 lines; it cannot decrypt.</p></div>
+        <div class="card"><h3>3 · Opened on your computer</h3><p>Decrypted into a local database your agents query. Both ends poll outward: no open ports.</p></div>
+      </div>
+    </section>
+
+    <section id="security">
+      <h2>Security, plainly</h2>
+      <table>
+        <tr><th>The relay sees</th><td>a device id, encrypted blobs, their sizes and times, IP addresses</td></tr>
+        <tr><th>The relay never sees</th><td>message text, numbers, names, contacts, which command was sent</td></tr>
+        <tr><th>Prompt injection</th><td>SMS text is marked untrusted, never pasted into shell commands or LLM prompts; agent-added rules cannot run programs or send SMS unless you allow it</td></tr>
+        <tr><th>Sharp edges</th><td>the key is not hardware-backed; <code>phone.db</code> is plaintext on your disk; tested on one phone so far</td></tr>
+      </table>
+      <p class="small">Full threat model: <a href="https://github.com/Mahdi-mortazavi/angaros/blob/main/SECURITY.md">SECURITY.md</a> ·
+        measured performance: <a href="https://github.com/Mahdi-mortazavi/angaros/blob/main/docs/performance.md">docs/performance.md</a></p>
+    </section>
+  </main>
+
+  <footer>
+    Made in Iran by <a href="https://mahdi-mortazavi.github.io">Mahdi Mortazavi</a> · MIT ·
+    <a href="https://t.me/Mahdi_mortazavi1">Telegram</a> ·
+    <a href="https://t.me/Startup_legend">Startup Legend community</a> ·
+    <a href="https://github.com/Mahdi-mortazavi/angaros/blob/main/README.fa.md" lang="fa" dir="rtl">راهنمای فارسی</a>
+  </footer>
+</div>
+<script>
+  const root = document.documentElement, key = "angaros-theme", saved = localStorage.getItem(key);
+  if (saved) root.dataset.theme = saved;
+  document.getElementById("theme").addEventListener("click", () => {
+    const dark = root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+    root.dataset.theme = dark ? "light" : "dark";
+    localStorage.setItem(key, root.dataset.theme);
+  });
+  document.querySelectorAll("pre").forEach((pre) => {
+    const b = document.createElement("button");
+    b.className = "copy"; b.type = "button"; b.textContent = "Copy";
+    b.addEventListener("click", async () => {
+      const text = pre.querySelector("code").innerText.replace(/[ \t]+#.*$/gm, "");
+      try { await navigator.clipboard.writeText(text); b.textContent = "Copied"; } catch { b.textContent = "Select and copy"; }
+      setTimeout(() => (b.textContent = "Copy"), 1500);
+    });
+    pre.appendChild(b);
+  });
+</script>
+</body>
+</html>

@@ -1,0 +1,578 @@
+[
+ {
+  "body": "کد تایید شما ۴۵۶۷۸۹ است",
+  "sender": "10004321",
+  "known": false,
+  "cls": "otp",
+  "otp": "456789",
+  "amount": null,
+  "direction": null
+ },
+ {
+  "body": "Your verification code is 4821",
+  "sender": "10004321",
+  "known": false,
+  "cls": "otp",
+  "otp": "4821",
+  "amount": null,
+  "direction": null
+ },
+ {
+  "body": "<#> 123456 is your Snapp code\nabcDEF123",
+  "sender": "10004321",
+  "known": false,
+  "cls": "otp",
+  "otp": "123456",
+  "amount": null,
+  "direction": null
+ },
+ {
+  "body": "کد ورود شما به دیوار: 52341",
+  "sender": "10004321",
+  "known": false,
+  "cls": "otp",
+  "otp": "52341",
+  "amount": null,
+  "direction": null
+ },
+ {
+  "body": "رمز یکبار مصرف: ۷۷۸۸۹۹\nبانک ملت",
+  "sender": "10004321",
+  "known": false,
+  "cls": "otp",
+  "otp": "778899",
+  "amount": null,
+  "direction": null
+ },
+ {
+  "body": "مبلغ 150000 ریال، کد تایید 5566",
+  "sender": "10004321",
+  "known": false,
+  "cls": "otp",
+  "otp": "5566",
+  "amount": null,
+  "direction": null
+ },
+ {
+  "body": "رمز دوم پویا: 83920145\nمبلغ: 1,200,000 ریال\nپذیرنده: اسنپ\nزمان اعتبار: 2 دقیقه",
+  "sender": "10004321",
+  "known": false,
+  "cls": "otp",
+  "otp": "83920145",
+  "amount": null,
+  "direction": null
+ },
+ {
+  "body": "Code 1234. Do not share. Call 02112345678",
+  "sender": "10004321",
+  "known": false,
+  "cls": "otp",
+  "otp": "1234",
+  "amount": null,
+  "direction": null
+ },
+ {
+  "body": "كد تأييد: ٩٨٧٦",
+  "sender": "10004321",
+  "known": false,
+  "cls": "otp",
+  "otp": "9876",
+  "amount": null,
+  "direction": null
+ },
+ {
+  "body": "meeting at 1830 tomorrow",
+  "sender": "10004321",
+  "known": false,
+  "cls": "service",
+  "otp": null,
+  "amount": null,
+  "direction": null
+ },
+ {
+  "body": "سلام، فردا ساعت 1830 جلسه داریم",
+  "sender": "10004321",
+  "known": false,
+  "cls": "service",
+  "otp": null,
+  "amount": null,
+  "direction": null
+ },
+ {
+  "body": "مرسوله شما با کد رهگیری: 12345678 ارسال شد",
+  "sender": "10004321",
+  "known": false,
+  "cls": "delivery",
+  "otp": null,
+  "amount": null,
+  "direction": null
+ },
+ {
+  "body": "کد پستی 1234567890 ثبت شد",
+  "sender": "10004321",
+  "known": false,
+  "cls": "delivery",
+  "otp": null,
+  "amount": null,
+  "direction": null
+ },
+ {
+  "body": "ورود به حساب در 1403/07/15 انجام شد",
+  "sender": "10004321",
+  "known": false,
+  "cls": "service",
+  "otp": null,
+  "amount": null,
+  "direction": null
+ },
+ {
+  "body": "بانک ملی ایران\nبرداشت:1,500,000\nاز:0110012345007\nمانده:25,300,000\n1403/07/15-12:30",
+  "sender": "+98700000",
+  "known": false,
+  "cls": "bank",
+  "otp": null,
+  "amount": 1500000,
+  "direction": -1
+ },
+ {
+  "body": "بانك ملت\nحساب7036123456\nبرداشت500,000ريال\nمانده1,234,567ريال\n0715-12:30",
+  "sender": "+98700000",
+  "known": false,
+  "cls": "bank",
+  "otp": null,
+  "amount": 500000,
+  "direction": -1
+ },
+ {
+  "body": "بانک سامان\nواریز 2,000,000 ریال\nبه 849-800-1234567-1\nمانده 10,500,000\n1403/07/16 09:15",
+  "sender": "+98700000",
+  "known": false,
+  "cls": "bank",
+  "otp": null,
+  "amount": 2000000,
+  "direction": 1
+ },
+ {
+  "body": "بانک پاسارگاد\nخرید از فروشگاه دیجی کالا\nمبلغ: 3,450,000 ریال\nکارت: 5022-29**-****-1234\nمانده: 8,000,000\n1403/08/01-20:11",
+  "sender": "+98700000",
+  "known": false,
+  "cls": "bank",
+  "otp": null,
+  "amount": 3450000,
+  "direction": -1
+ },
+ {
+  "body": "بلو\nواریز ۵۰۰,۰۰۰ تومان\nموجودی: ۲,۳۰۰,۰۰۰ تومان",
+  "sender": "+98700000",
+  "known": false,
+  "cls": "bank",
+  "otp": null,
+  "amount": 5000000,
+  "direction": 1
+ },
+ {
+  "body": "بانک تجارت\nانتقال:-1,000,000\nاز:7001\nمانده:12,000,000\n0812-14:22",
+  "sender": "+98700000",
+  "known": false,
+  "cls": "bank",
+  "otp": null,
+  "amount": 1000000,
+  "direction": -1
+ },
+ {
+  "body": "بانک ملی\nانتقال:+3,000,000\nبه:0110012345007\nمانده:40,000,000",
+  "sender": "+98700000",
+  "known": false,
+  "cls": "bank",
+  "otp": null,
+  "amount": 3000000,
+  "direction": 1
+ },
+ {
+  "body": "بانک سپه\nبرداشت از خودپرداز\nمبلغ 2,000,000 ریال\nمانده 1,000,000",
+  "sender": "+98700000",
+  "known": false,
+  "cls": "bank",
+  "otp": null,
+  "amount": 2000000,
+  "direction": -1
+ },
+ {
+  "body": "بانک کشاورزی\nپرداخت قبض\nمبلغ:450,000\nکارت:...9876\nموجودی:3,000,000",
+  "sender": "+98700000",
+  "known": false,
+  "cls": "bank",
+  "otp": null,
+  "amount": 450000,
+  "direction": -1
+ },
+ {
+  "body": "بانک رفاه\nبرداشت بابت خرید\nمبلغ:120,000\nمانده:900,000",
+  "sender": "+98700000",
+  "known": false,
+  "cls": "bank",
+  "otp": null,
+  "amount": 120000,
+  "direction": -1
+ },
+ {
+  "body": "بانک مسکن\nواریز انتقالی\nمبلغ:7,000,000\nمانده:9,000,000",
+  "sender": "+98700000",
+  "known": false,
+  "cls": "bank",
+  "otp": null,
+  "amount": 7000000,
+  "direction": 1
+ },
+ {
+  "body": "سلام داداش، کجایی؟",
+  "sender": "09000000101",
+  "known": false,
+  "cls": "personal",
+  "otp": null,
+  "amount": null,
+  "direction": null
+ },
+ {
+  "body": "کد تایید شما ۴۵۶۷۸۹ است",
+  "sender": "10004321",
+  "known": false,
+  "cls": "otp",
+  "otp": "456789",
+  "amount": null,
+  "direction": null
+ },
+ {
+  "body": "بانک ملی ایران\nبرداشت:1,500,000\nاز:0110012345007\nمانده:25,300,000\n1403/07/15-12:30",
+  "sender": "+9899999",
+  "known": false,
+  "cls": "bank",
+  "otp": null,
+  "amount": 1500000,
+  "direction": -1
+ },
+ {
+  "body": "مرسوله شما با کد رهگیری 123456789012 ارسال شد",
+  "sender": "50001234",
+  "known": false,
+  "cls": "delivery",
+  "otp": null,
+  "amount": null,
+  "direction": null
+ },
+ {
+  "body": "جشنواره پاییزه دیجی‌کالا تا 70% تخفیف لغو11",
+  "sender": "3000123",
+  "known": false,
+  "cls": "ad",
+  "otp": null,
+  "amount": null,
+  "direction": null
+ },
+ {
+  "body": "قبض برق شما صادر شد. مهلت پرداخت 1403/08/10",
+  "sender": "8888",
+  "known": false,
+  "cls": "service",
+  "otp": null,
+  "amount": null,
+  "direction": null
+ },
+ {
+  "body": "hey it's me",
+  "sender": "Sara",
+  "known": true,
+  "cls": "personal",
+  "otp": null,
+  "amount": null,
+  "direction": null
+ },
+ {
+  "body": "بانک ملت\nعملیات: برداشت\nکارت: 6104-33**-****-0001\nمبلغ: 1,200,000 ریال\nمانده: 8,450,000 ریال\n1403/02/11-09:14",
+  "sender": "+98700011",
+  "known": false,
+  "cls": "bank",
+  "otp": null,
+  "amount": 1200000,
+  "direction": -1
+ },
+ {
+  "body": "پاسارگاد\nواریز به 21.8000.12345678.1\n+5,000,000\n1403/02/11\n13:45\nمانده: 7,800,000",
+  "sender": "+98200020",
+  "known": false,
+  "cls": "bank",
+  "otp": null,
+  "amount": 5000000,
+  "direction": 1
+ },
+ {
+  "body": "بانک سامان\nانتقال از 849-800-1234567-1\n-1,000,000\nمانده 2,300,000\n1403/02/11",
+  "sender": "+98200030",
+  "known": false,
+  "cls": "bank",
+  "otp": null,
+  "amount": 1000000,
+  "direction": -1
+ },
+ {
+  "body": "بانک صادرات\nخرید\nمبلغ: 450,000 ریال\nکارت: 6037-69**-****-0002\nمانده: 3,100,000\n1403/02/11 18:22",
+  "sender": "+98700050",
+  "known": false,
+  "cls": "bank",
+  "otp": null,
+  "amount": 450000,
+  "direction": -1
+ },
+ {
+  "body": "بانك ملي ايران\nبرداشت:۱٬۵۰۰٬۰۰۰\nحساب:۰۱۰۱۲۳۴۵۶۷۰۰۸\nمانده:۲۳٬۴۵۶٬۷۸۹\n۱۴۰۳/۰۲/۱۱\n۱۲:۰۳",
+  "sender": "+98700990",
+  "known": false,
+  "cls": "bank",
+  "otp": null,
+  "amount": 1500000,
+  "direction": -1
+ },
+ {
+  "body": "بلو\nواریز ۲۵۰٬۰۰۰ تومان به حساب شما\nموجودی: ۱٬۲۵۰٬۰۰۰ تومان",
+  "sender": "Blu",
+  "known": false,
+  "cls": "bank",
+  "otp": null,
+  "amount": 2500000,
+  "direction": 1
+ },
+ {
+  "body": "بانک ملت\nکارت به کارت\nانتقال از کارت 5022-29**-****-1234 به کارت شما\nمبلغ: 1,000,000 ریال\n1403/02/11",
+  "sender": "+98700012",
+  "known": false,
+  "cls": "bank",
+  "otp": null,
+  "amount": 1000000,
+  "direction": 1
+ },
+ {
+  "body": "بانک رفاه کارگران\nبرداشت از حساب 123456789\nمبلغ: 700,000 ریال\nبابت: پرداخت قبض\nمانده: 1,000,000 ریال\nکد ملی مشتری ثبت شد",
+  "sender": "+98700080",
+  "known": false,
+  "cls": "bank",
+  "otp": null,
+  "amount": 700000,
+  "direction": -1
+ },
+ {
+  "body": "بانک تجارت\nبرداشت: 2,000,000\nمانده: 5,000,000\nکد شعبه: 1234\n1403/02/11",
+  "sender": "+98700060",
+  "known": false,
+  "cls": "bank",
+  "otp": null,
+  "amount": 2000000,
+  "direction": -1
+ },
+ {
+  "body": "بانک کشاورزی\n+5,000,000\nحساب 123456789\n14030211 1030\nمانده 12,000,000",
+  "sender": "+98700090",
+  "known": false,
+  "cls": "bank",
+  "otp": null,
+  "amount": 5000000,
+  "direction": 1
+ },
+ {
+  "body": "بانک سپه\nخرید: 500,000 ریال\nموجودی قابل برداشت: 2,345,000 ریال\n1403/02/11",
+  "sender": "+98700070",
+  "known": false,
+  "cls": "bank",
+  "otp": null,
+  "amount": 500000,
+  "direction": -1
+ },
+ {
+  "body": "Bank Ayandeh\nPurchase: 3,250,000 IRR\nCard: ****4411\nBalance: 9,000,000 IRR\nat SNAPP FOOD\n2024/05/01 20:11",
+  "sender": "Ayandeh",
+  "known": false,
+  "cls": "bank",
+  "otp": null,
+  "amount": 3250000,
+  "direction": -1
+ },
+ {
+  "body": "بانک مسکن\nحواله ساتنا\nمبلغ: 150,000,000 ریال\nاز حساب: 3300123456\nمانده: 10,000,000 ریال",
+  "sender": "+98700100",
+  "known": false,
+  "cls": "bank",
+  "otp": null,
+  "amount": 150000000,
+  "direction": -1
+ },
+ {
+  "body": "بانک ملت\nبرداشت از حساب 1234567890\nمبلغ: 3,000,000 ریال\nشرح: واریز به کارت دیگران\nمانده: 1,000,000 ریال",
+  "sender": "+98700012",
+  "known": false,
+  "cls": "bank",
+  "otp": null,
+  "amount": 3000000,
+  "direction": -1
+ },
+ {
+  "body": "G-482913 is your Google verification code.",
+  "sender": "Google",
+  "known": false,
+  "cls": "otp",
+  "otp": "482913",
+  "amount": null,
+  "direction": null
+ },
+ {
+  "body": "Your WhatsApp code: 123-456\nDon't share this code with others",
+  "sender": "WhatsApp",
+  "known": false,
+  "cls": "otp",
+  "otp": "123456",
+  "amount": null,
+  "direction": null
+ },
+ {
+  "body": "123 456 is your PhotoDemo login code, keep it private.",
+  "sender": "PhotoDemo",
+  "known": false,
+  "cls": "otp",
+  "otp": "123456",
+  "amount": null,
+  "direction": null
+ },
+ {
+  "body": "رمز دوم پویا\nکارت: 6219-86**-****-1234\nمبلغ: 1,000,000 ریال\nپذیرنده: دیجی کالا\nرمز: 82736451\nاعتبار تا 14:32",
+  "sender": "+98700012",
+  "known": false,
+  "cls": "otp",
+  "otp": "82736451",
+  "amount": null,
+  "direction": null
+ },
+ {
+  "body": "۱۴۰۳/۰۲/۱۱ کد ورود شما به اسنپ: ۵۵۶۶\n@snapp.ir #5566",
+  "sender": "Snapp",
+  "known": false,
+  "cls": "otp",
+  "otp": "5566",
+  "amount": null,
+  "direction": null
+ },
+ {
+  "body": "کد تایید شما: 7781\nپشتیبانی: 021-91001234",
+  "sender": "+98300012",
+  "known": false,
+  "cls": "otp",
+  "otp": "7781",
+  "amount": null,
+  "direction": null
+ },
+ {
+  "body": "به دیوار خوش آمدید\n1290 کد ورود شماست",
+  "sender": "Divar",
+  "known": false,
+  "cls": "otp",
+  "otp": "1290",
+  "amount": null,
+  "direction": null
+ },
+ {
+  "body": "سفارش 12345678 ثبت شد. کد تایید تحویل: 4321",
+  "sender": "Tapsi",
+  "known": false,
+  "cls": "otp",
+  "otp": "4321",
+  "amount": null,
+  "direction": null
+ },
+ {
+  "body": "رمز یکبار مصرف 5512 جهت پرداخت 250000 تومان به فروشگاه X",
+  "sender": "+98700012",
+  "known": false,
+  "cls": "otp",
+  "otp": "5512",
+  "amount": null,
+  "direction": null
+ },
+ {
+  "body": "کد ورود شما 2024 نیست! کد: 918273",
+  "sender": "MyIrancell",
+  "known": false,
+  "cls": "otp",
+  "otp": "918273",
+  "amount": null,
+  "direction": null
+ },
+ {
+  "body": "جشنواره بهاره! با کد 1404 تا 30% تخفیف بگیرید\nلغو11",
+  "sender": "3000123",
+  "known": false,
+  "cls": "ad",
+  "otp": null,
+  "amount": null,
+  "direction": null
+ },
+ {
+  "body": "همین حالا سفارش دهید و هدیه بگیرید digikala.com\nلغو11",
+  "sender": "30001122",
+  "known": false,
+  "cls": "ad",
+  "otp": null,
+  "amount": null,
+  "direction": null
+ },
+ {
+  "body": "خرید اقساطی با کارت بانکی تا سقف 50,000,000 ریال\nلغو 11",
+  "sender": "30008888",
+  "known": false,
+  "cls": "ad",
+  "otp": null,
+  "amount": null,
+  "direction": null
+ },
+ {
+  "body": "فروش ویژه آپارتمان در پردیس، تماس بگیرید\nلغو11",
+  "sender": "09000000101",
+  "known": false,
+  "cls": "ad",
+  "otp": null,
+  "amount": null,
+  "direction": null
+ },
+ {
+  "body": "مرسوله شما با کد رهگیری 123456789012345678901234 تحویل پست شد",
+  "sender": "Post",
+  "known": false,
+  "cls": "delivery",
+  "otp": null,
+  "amount": null,
+  "direction": null
+ },
+ {
+  "body": "سفارش 98765432 شما ارسال شد. پیگیری: dgka.la/x",
+  "sender": "DIGIKALA",
+  "known": false,
+  "cls": "delivery",
+  "otp": null,
+  "amount": null,
+  "direction": null
+ },
+ {
+  "body": "سلام ۵۰۰ تومن کارت به کارت کردم، رسید رو ببین",
+  "sender": "09000000102",
+  "known": false,
+  "cls": "personal",
+  "otp": null,
+  "amount": null,
+  "direction": null
+ },
+ {
+  "body": "مشترک عزیز، طرح اینترنت ماهانه‌ی شما فعال گردید",
+  "sender": "OPDEMO",
+  "known": false,
+  "cls": "service",
+  "otp": null,
+  "amount": null,
+  "direction": null
+ }
+]

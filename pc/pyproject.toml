@@ -1,0 +1,48 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "angaros"
+version = "3.0.3" # x-release-please-version
+description = "Your phone, for your AI agents: SMS, contacts and call log from your own Android phone over an end-to-end encrypted relay (CLI, MCP server, Python SDK, REST)."
+readme = "README.md"
+license = "MIT"
+license-files = ["LICENSE"]
+authors = [{ name = "Mahdi Mortazavi" }]
+requires-python = ">=3.10"
+dependencies = [
+    "cryptography>=42",
+    "qrcode[pil]>=7",
+    "pyyaml>=6",
+    "mcp>=2.0",
+]
+keywords = ["mcp", "mcp-server", "sms", "android", "ai-agents", "otp", "automation", "claude"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Console",
+    "Intended Audience :: Developers",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Communications :: Telephony",
+]
+
+[project.urls]
+Homepage = "https://github.com/Mahdi-mortazavi/angaros"
+Documentation = "https://mahdi-mortazavi.github.io/angaros/"
+Issues = "https://github.com/Mahdi-mortazavi/angaros/issues"
+Changelog = "https://github.com/Mahdi-mortazavi/angaros/blob/main/CHANGELOG.md"
+
+[project.scripts]
+angaros = "phonebridge.phone:main"
+angaros-mcp = "phonebridge.mcp_server:main"
+
+[tool.setuptools]
+packages = ["phonebridge"]
+
+[tool.setuptools.package-data]
+phonebridge = ["openapi.yaml"]

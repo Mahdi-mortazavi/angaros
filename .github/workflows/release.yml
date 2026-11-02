@@ -1,0 +1,144 @@
+name: Release
+
+# Builds signed release APKs from source, the Python sdist/wheel, SHA256SUMS and a provenance attestation, and
+# attaches them to the GitHub release for the tag. Runs on a pushed `v*` tag, by hand, or from release-please.yml.
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+    inputs:
+      tag:
+        description: "Existing tag to build, e.g. v3.0.3"
+        required: true
+  workflow_call:
+    inputs:
+      tag:
+        type: string
+        required: true
+
+permissions:
+  contents: read
+
+concurrency:
+  group: release-${{ inputs.tag || github.ref_name }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    permissions:
+      contents: write      # upload release assets
+      id-token: write      # provenance attestation
+      attestations: write
+    env:
+      TAG: ${{ inputs.tag || github.ref_name }}
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          ref: ${{ env.TAG }}
+
+      - name: Version must match the tag
+        id: ver
+        run: |
+          V="${TAG#v}"
+          APP=$(sed -n 's/^val appVersion = "\([^"]*\)".*/\1/p' android/app/build.gradle.kts)
+          PY=$(sed -n 's/^version = "\([^"]*\)".*/\1/p' pc/pyproject.toml)
+          echo "tag=$V app=$APP python=$PY"
+          if [ "$V" != "$APP" ] || [ "$V" != "$PY" ]; then
+            echo "::error::tag $TAG does not match appVersion ($APP) / pyproject version ($PY)"; exit 1
+          fi
+          echo "version=$V" >> "$GITHUB_OUTPUT"
+
+      - uses: actions/setup-java@v5
+        with:
+          distribution: temurin
+          java-version: "17"
+      - uses: gradle/actions/setup-gradle@v4
+
+      - name: Restore the release keystore from secrets
+        env:
+          SIGNING_KEYSTORE_B64: ${{ secrets.SIGNING_KEYSTORE_B64 }}
+        run: |
+          if [ -z "$SIGNING_KEYSTORE_B64" ]; then
+            echo "::error::SIGNING_KEYSTORE_B64 is not set; refusing to publish unsigned or debug-signed APKs"; exit 1
+          fi
+          echo "$SIGNING_KEYSTORE_B64" | base64 --decode > "$RUNNER_TEMP/release.jks"
+
+      - name: Build signed release APKs (R8, ABI splits + universal)
+        working-directory: android
+        env:
+          SIGNING_STORE_FILE: ${{ runner.temp }}/release.jks
+          SIGNING_STORE_PASSWORD: ${{ secrets.SIGNING_STORE_PASSWORD }}
+          SIGNING_KEY_ALIAS: ${{ secrets.SIGNING_KEY_ALIAS }}
+          SIGNING_KEY_PASSWORD: ${{ secrets.SIGNING_KEY_PASSWORD }}
+        run: ./gradlew --stacktrace assembleRelease
+
+      - name: Rename, verify signatures, refuse the debug key
+        env:
+          V: ${{ steps.ver.outputs.version }}
+        run: |
+          mkdir -p out
+          src=android/app/build/outputs/apk/release
+          for abi in universal arm64-v8a armeabi-v7a; do
+            f="$src/app-$abi-release.apk"
+            [ -f "$f" ] || { echo "::error::missing $f (unsigned build?)"; ls -l "$src"; exit 1; }
+            cp "$f" "out/Angaros-$V-$abi.apk"
+          done
+          APKSIGNER=$(ls "$ANDROID_HOME"/build-tools/*/apksigner | sort -V | tail -1)
+          for f in out/*.apk; do
+            certs=$("$APKSIGNER" verify --print-certs "$f")
+            echo "$certs" | sed -n '1,3p'
+            if echo "$certs" | grep -q "CN=Android Debug"; then
+              echo "::error::$f is signed with a debug key"; exit 1
+            fi
+          done
+
+      - uses: actions/setup-python@v6
+        with:
+          python-version: "3.12"
+      - name: Build the Python sdist and wheel
+        run: |
+          python -m pip install build
+          python -m build pc --outdir out
+
+      - name: SHA256SUMS
+        working-directory: out
+        run: sha256sum * > SHA256SUMS && cat SHA256SUMS
+
+      - uses: actions/attest-build-provenance@v2
+        with:
+          subject-path: |
+            out/*.apk
+            out/*.whl
+            out/*.tar.gz
+
+      - name: Publish to the GitHub release
+        uses: softprops/action-gh-release@v2
+        with:
+          tag_name: ${{ env.TAG }}
+          generate_release_notes: true
+          files: out/*
+
+      - uses: actions/upload-artifact@v4
+        with:
+          name: python-dist
+          path: |
+            out/*.whl
+            out/*.tar.gz
+
+  pypi:
+    # Opt-in: set the repository variable PUBLISH_PYPI=true after configuring a PyPI trusted publisher for
+    # this repo/workflow/environment (https://docs.pypi.org/trusted-publishers/).
+    needs: build
+    if: vars.PUBLISH_PYPI == 'true'
+    runs-on: ubuntu-latest
+    environment: pypi
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/download-artifact@v4
+        with:
+          name: python-dist
+          path: dist
+      - uses: pypa/gh-action-pypi-publish@release/v1

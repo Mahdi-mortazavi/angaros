@@ -1,0 +1,12 @@
+{
+ "key_hex": "000102030405060708090a0b0c0d0e0f101112131415161718191a1b1c1d1e1f",
+ "nonce_hex": "6465666768696a6b6c6d6e6f",
+ "aad": "dev123dev123dev123|up",
+ "plaintext": "{\"t\":\"sms\",\"items\":[{\"number\":\"+989000000101\",\"body\":\"سلام کد ۱۲۳۴\"}]}",
+ "blob": "ZGVmZ2hpamtsbW5vMzmqREPLJfNNQHPKsxEPkDHgPFHwTp0HyrPJOtmZh2Ot0XnwfCKrNM3CSA7fbuitdD/hxRpomZsjdXRxNgSFUKFUdC4N+uC3UNw29zP3bJsAn26hL9feFw5vH/0z+3eu",
+ "pairing": {
+  "worker": "https://pb.example.workers.dev",
+  "token": "dev123dev123dev123.abababababababababababababababababababababababababababababababab",
+  "string": "pb1:eyJ1IjoiaHR0cHM6Ly9wYi5leGFtcGxlLndvcmtlcnMuZGV2IiwidCI6ImRldjEyM2RldjEyM2RldjEyMy5hYmFiYWJhYmFiYWJhYmFiYWJhYmFiYWJhYmFiYWJhYmFiYWJhYmFiYWJhYmFiYWJhYmFiYWJhYmFiYWJhYmFiIiwiayI6IkFBRUNBd1FGQmdjSUNRb0xEQTBPRHhBUkVoTVVGUllYR0JrYUd4d2RIaDg9In0"
+ }
+}

@@ -1,0 +1,58 @@
+name: Device report
+description: Tell us how Angaros behaves on your phone (works or not, both are useful).
+labels: [device-report]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        Angaros has been verified on very few phones. A report from yours helps everyone using the same model.
+        Do not include real messages or numbers.
+  - type: input
+    id: model
+    attributes:
+      label: Phone model
+      placeholder: "Samsung Galaxy A30s"
+    validations:
+      required: true
+  - type: input
+    id: android
+    attributes:
+      label: Android version and skin
+      placeholder: "Android 16, One UI 8"
+    validations:
+      required: true
+  - type: input
+    id: app
+    attributes:
+      label: App version and APK
+      placeholder: "3.0.3, arm64-v8a"
+    validations:
+      required: true
+  - type: dropdown
+    id: sims
+    attributes:
+      label: SIMs
+      options: [One SIM, Dual SIM, eSIM, No SIM]
+  - type: checkboxes
+    id: works
+    attributes:
+      label: What works?
+      options:
+        - label: Install and onboarding
+        - label: Pairing by QR code
+        - label: Message history backfill
+        - label: New incoming SMS reach the computer
+        - label: Sending an SMS (with delivery report)
+        - label: Contacts and call log
+        - label: Stays connected for 24 h with the screen off
+        - label: Survives a reboot (after the first unlock)
+  - type: dropdown
+    id: battery
+    attributes:
+      label: Battery optimisation for Angaros
+      options: [Unrestricted, Optimised, Restricted, Not sure]
+  - type: textarea
+    id: notes
+    attributes:
+      label: Notes, problems, `angaros doctor` output
+      render: text

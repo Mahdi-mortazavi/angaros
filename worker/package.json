@@ -1,0 +1,14 @@
+{
+  "name": "angaros-relay",
+  "version": "3.0.3",
+  "private": true,
+  "description": "Angaros relay: a Cloudflare Worker mailbox that only ever stores ciphertext.",
+  "type": "module",
+  "license": "MIT",
+  "engines": { "node": ">=22.13" },
+  "scripts": {
+    "test": "node --test",
+    "dev": "npx wrangler@4 dev",
+    "deploy": "npx wrangler@4 deploy"
+  }
+}

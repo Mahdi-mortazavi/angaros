@@ -1,0 +1,65 @@
+# Copy to rules.yaml (next to phone.py) and run:  python phone.py daemon
+# Check it:  python phone.py rules check rules.yaml      Dry-run on the newest SMS:  python phone.py rules test rules.yaml
+hermes_cmd: [hermes, -z]
+
+rules:
+  # 1. Deposit alert to Telegram (via Hermes' configured Telegram bot; no LLM involved)
+  - name: deposit-alert
+    on: sms
+    if: {class: bank, bank_type: deposit, amount_gt: 10000000}   # > 1,000,000 Toman
+    do:
+      - notify: telegram
+        message: "💰 واریز {amount_toman} تومان به {bank} — مانده {balance} ریال"
+
+  # 2. OTP forwarding to a local file agents can read (newest code on the last line)
+  - name: otp-to-file
+    on: sms
+    if: {class: otp}
+    do:
+      - append: "~/angaros/otp.log"
+        line: "{time}\t{number}\t{otp}"
+
+  # 3. Auto-reply to missed calls from saved contacts, at most once per hour per number
+  - name: missed-call-reply
+    on: call
+    if: {call_type: MISSED, unknown_sender: false}
+    cooldown: 1h
+    do:
+      - reply: "سلام، الان نمی‌تونم جواب بدم. بعداً تماس می‌گیرم."
+
+  # 4. Daily 21:00 summary of SMS from unknown senders, written by Hermes into the Obsidian vault.
+  #    The messages are passed wrapped as untrusted data, never as instructions.
+  - name: unknown-sender-summary
+    on: schedule
+    at: "21:00"
+    collect: {since: 24h, unknown_sender: true}
+    do:
+      - hermes: >-
+          Summarise today's {count} SMS from unknown senders for Mahdi in Persian, grouped by type
+          (ads, services, possible scams). Append the summary to
+          "~/Obsidian/Inbox/SMS summary.md".
+
+  # 5. Log every bank transaction to an Obsidian note
+  - name: bank-ledger
+    on: sms
+    if: {class: bank}
+    do:
+      - append: "~/Obsidian/Inbox/Bank ledger.md"
+        line: "- {time} | {bank} | {type} | {amount_toman} تومان | {merchant}"
+
+  # 6. v3: alert when an SMS you sent could not be delivered (event hook, no LLM)
+  - name: delivery-failed
+    on_event: [delivery]
+    if: {status: delivery_failed}
+    do:
+      - notify: telegram
+        message: "پیامک {id} تحویل نشد"
+
+  # 7. v3: nightly digest at 22:00 (cron) written by an LLM command; SMS reach it wrapped as untrusted data on stdin
+  - name: nightly-digest
+    cron: "0 22 * * *"
+    collect: {since: 24h}
+    do:
+      - llm: >-
+          Write a short Persian digest of today's SMS for Mahdi and append it to
+          "~/Obsidian/Inbox/SMS digest.md".

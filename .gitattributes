@@ -1,0 +1,10 @@
+* text=auto eol=lf
+*.bat text eol=crlf
+*.cmd text eol=crlf
+gradlew text eol=lf
+*.png binary
+*.jpg binary
+*.ttf binary
+*.jar binary
+*.apk binary
+docs/** linguist-documentation

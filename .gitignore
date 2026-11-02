@@ -1,0 +1,48 @@
+# --- secrets and personal data: never commit ---
+*.jks
+*.keystore
+keystore.properties
+signing/
+.env
+.env.*
+.dev.vars
+config.json
+api_token
+pairing.png
+phone.db
+phone.db-*
+rules.yaml
+audit.head
+
+# --- Android / Gradle ---
+local.properties
+.gradle/
+.kotlin/
+build/
+captures/
+*.apk
+*.aab
+*.hprof
+hs_err_pid*.log
+.idea/
+*.iml
+
+# --- Python ---
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+dist/
+.ruff_cache/
+.pytest_cache/
+
+# --- Node / Worker ---
+node_modules/
+.wrangler/
+
+# --- misc ---
+*.log
+.DS_Store
+Thumbs.db
+.privacy-local
