@@ -141,8 +141,8 @@ dependencies {
     implementation(bom)
     // Material 3 Expressive APIs (MotionScheme.expressive, ButtonGroup, LoadingIndicator, FloatingToolbar,
     // MaterialShapes) are only in 1.5; the BOM pins 1.4.0.
-    implementation("androidx.compose.material3:material3:1.5.0-beta02")
-    implementation("androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-beta02")
+    implementation("androidx.compose.material3:material3:1.5.0-rc01")
+    implementation("androidx.compose.material3:material3-adaptive-navigation-suite:1.5.0-rc01")
     implementation("androidx.compose.ui:ui")
     implementation("androidx.compose.animation:animation")
     implementation("androidx.compose.ui:ui-tooling-preview")
